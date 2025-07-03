@@ -143,7 +143,12 @@ if (process.env.NODE_ENV === 'production') {
   }));
   
   // Handle React Router routes
-  app.get('*', (req, res) => {
+  const generalRateLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // max 100 requests per windowMs
+  });
+  
+  app.get('*', generalRateLimiter, (req, res) => {
     if (req.originalUrl.startsWith('/api/')) {
       return res.status(404).json({ message: 'API route not found' });
     }
