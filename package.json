@@ -1,0 +1,23 @@
+{
+  "name": "crypto-wallet-app",
+  "version": "1.0.0",
+  "description": "Modern cryptocurrency wallet application",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && npm run dev",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "build:prod": "cd client && npm run build && cd ../server && npm install --production",
+    "start:prod": "cd server && NODE_ENV=production npm start",
+    "test:prod": "npm run build:prod && npm run start:prod",
+    "setup:prod": "sudo ./setup-production.sh",
+    "install-deps": "npm install && cd server && npm install && cd ../client && npm install"
+  },
+  "keywords": ["crypto", "wallet", "bitcoin", "ethereum", "blockchain"],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
