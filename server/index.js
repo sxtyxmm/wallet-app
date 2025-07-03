@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Database connection
-const connectDB = require('./config/database');
+const { connectDB, disconnectDB } = require('./config/database');
 
 // Winston logger setup
 const logDir = path.resolve(__dirname, 'logs');

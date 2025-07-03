@@ -89,3 +89,14 @@ Thumbs.db
 
 # PM2 logs
 .pm2/
+
+# MongoDB Memory Server binaries
+mongodb-binaries/
+.mongodb-memory-server/
+
+# MongoDB data directories
+data/
+mongodb-data/
+
+# Test script
+create-test-users.sh
